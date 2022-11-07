@@ -6,6 +6,8 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.os.Bundle;
+import android.os.Handler;
+import android.transition.Explode;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewTreeObserver;
@@ -32,7 +34,7 @@ public class LevelActivity extends AppCompatActivity {
     private boolean[] powers = {false, false, false, false};
 
     private int[] gates;
-    private int goal;
+    private boolean goal;
 
     private int currentLevel;
 
@@ -48,12 +50,32 @@ public class LevelActivity extends AppCompatActivity {
     private int[] button3Loc = new int[2];
     private int[] button4Loc = new int[2];
 
+    private final int[][] levels = {
+            {and, and, and, 1}, // 1
+            {nand, and, and, 1}, // 2
+            {nand, nand, nand, 0}, // 3
+            {nand, nand, and, 1}, // 4
+            {and, nand, nand, 1}, // 5
+            {and, and, nand, 0}, // 6
+            {or, or, or, 1}, // 7
+            {or, and, and, 1}, // 8
+            {nand, or, nand, 0}, // 9
+            {nor, nand, nand, 1}, // 10
+            {or, nor, nor, 0}, // 11
+            {and, nor, nor, 0}, // 12
+            {xor, and, and, 1}, // 13
+            {xnor, or, nor, 1}, // 14
+            {and, xnor, nor, 1}, // 15
+            {xor, or, xnor, 1}, // 16
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_level);
+        this.getWindow().setEnterTransition(new Explode());
 
         mPaint.setColor(Color.GREEN);
         mImageView = (ImageView) findViewById(R.id.background);
@@ -105,26 +127,74 @@ public class LevelActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    private void togglePower(int index){
-        powers[index] = !powers[index];
+    public void toGates(View view) {
+        String tag = (String) view.getTag();
+        int gateNum = Integer.parseInt(tag);
+        int gate = levels[currentLevel-1][gateNum-1];
+        Intent intent = new Intent(this, GatesActivity.class);
+        Bundle b = new Bundle();
+        b.putInt("level", currentLevel);
+        b.putInt("gate", gate);
+        intent.putExtras(b);
+        startActivity(intent);
     }
 
     public void validate(View view) {
         if (checkMatch()) {
-            if (currentLevel >=3) {
-                currentLevel = 1;
+            if (currentLevel >=16) {
                 Intent intent = new Intent(this, MainActivity.class);
                 startActivity(intent);
             } else {
-                currentLevel++;
-                startLevel();
+                correct();
             }
-
+        } else {
+            incorrect();
         }
     }
 
+    private void togglePower(int index){
+        powers[index] = !powers[index];
+    }
+
+    private void correct() {
+        mImageView.setBackgroundColor(Color.parseColor("#C7DBA0"));
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                mImageView.setBackgroundColor(Color.parseColor("#B5C1DB"));
+                currentLevel++;
+                updateLevelReached();
+                nextLevel();
+            }
+        }, 1000);
+    }
+
+    public void updateLevelReached() {
+        ((MyApplication) this.getApplication()).updateLevelReached(currentLevel);
+    }
+
+    private void incorrect() {
+        mImageView.setBackgroundColor(Color.parseColor("#DBAAA0"));
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                mImageView.setBackgroundColor(Color.parseColor("#B5C1DB"));
+            }
+        }, 1000);
+    }
+
+    private void nextLevel() {
+        Intent intent = new Intent(this, LevelActivity.class);
+        Bundle b = new Bundle();
+        b.putInt("level", currentLevel+1);
+        intent.putExtras(b);
+        startActivity(intent);
+    }
+
     private boolean checkMatch() {
-        return (goal == 1 && gate0()) || (goal == 0 && !gate0());
+        return (goal && gate0()) || (!goal && !gate0());
     }
 
     private boolean gate0() {
@@ -158,18 +228,15 @@ public class LevelActivity extends AppCompatActivity {
     }
 
     private void startLevel() {
-        if (currentLevel == 1) {
-            gates = new int[]{and, and, and};
-            goal = 1;
-        } else if (currentLevel == 2) {
-            gates = new int[]{and, and, or};
-            goal = 0;
-        } else if (currentLevel == 3) {
-            gates = new int[]{xnor, xnor, or};
-            goal = 1;
-        }
+        gates = new int[] {levels[currentLevel-1][0], levels[currentLevel-1][1], levels[currentLevel-1][2]};
         TextView textView = findViewById(R.id.goal);
-        textView.setText(String.valueOf(goal));
+        if (levels[currentLevel-1][3] == 1) {
+            goal = true;
+            textView.setText("1");
+        } else {
+            goal = false;
+            textView.setText("0");
+        }
         ImageView gate1 = findViewById(R.id.gate1);
         gate1.setImageResource(gates[0]);
         ImageView gate2 = findViewById(R.id.gate2);
@@ -178,7 +245,7 @@ public class LevelActivity extends AppCompatActivity {
         gate3.setImageResource(gates[2]);
     }
 
-    public void drawBackground(View view) {
+    private void drawBackground(View view) {
         int vWidth = view.getWidth();
         int vHeight = view.getHeight();
         findViewById(R.id.gate1).getLocationInWindow(topGateLoc);
@@ -195,6 +262,7 @@ public class LevelActivity extends AppCompatActivity {
         int button2X = button2Loc[0] + findViewById(R.id.power2).getWidth()/2;
         int button3X = button3Loc[0] + findViewById(R.id.power3).getWidth()/2;
         int button4X = button4Loc[0] + findViewById(R.id.power4).getWidth()/2;
+        int goalBottom = findViewById(R.id.goal).getBottom();
 
         mBitmap = Bitmap.createBitmap(vWidth, vHeight, Bitmap.Config.ARGB_8888);
         mImageView.setImageBitmap(mBitmap);
@@ -202,7 +270,7 @@ public class LevelActivity extends AppCompatActivity {
 
         mPaint.setColor(Color.BLACK);
         mPaint.setStrokeWidth(9);
-        mCanvas.drawLine(view.getWidth()/2, 16+48, topGateLoc[0]+gateWidth/2, topGateLoc[1], mPaint);
+        mCanvas.drawLine(view.getWidth()/2, goalBottom-4, topGateLoc[0]+gateWidth/2, topGateLoc[1], mPaint);
         mCanvas.drawLine(topGateLoc[0]+gateWidth/2-wireOffset, topGateLoc[1]+gateHeight, leftGateLoc[0]+gateWidth/2, leftGateLoc[1], mPaint);
         mCanvas.drawLine(topGateLoc[0]+gateWidth/2+wireOffset, topGateLoc[1]+gateHeight, rightGateLoc[0]+gateWidth/2, rightGateLoc[1], mPaint);
         mCanvas.drawLine(leftGateLoc[0]+gateWidth/2-wireOffset, leftGateLoc[1]+gateHeight, button1X, button1Loc[1], mPaint);

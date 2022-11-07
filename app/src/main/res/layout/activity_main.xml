@@ -12,18 +12,18 @@
         android:id="@+id/mainBackground"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="#B5C1DB"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
     <ImageButton
-        android:id="@+id/levelButton12"
+        android:id="@+id/level12"
         android:layout_width="36dp"
         android:layout_height="36dp"
         android:adjustViewBounds="true"
-        android:background="@drawable/round_button"
-        android:backgroundTint="#000000"
+        android:background="@drawable/round_button_grey"
         android:cropToPadding="false"
         android:onClick="toLevel"
         android:padding="0dp"
@@ -31,18 +31,17 @@
         android:tag="12"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/levelButton11"
-        app:layout_constraintTop_toTopOf="@+id/levelButton11"
+        app:layout_constraintStart_toEndOf="@+id/level9"
+        app:layout_constraintTop_toTopOf="@+id/level9"
         app:srcCompat="@drawable/nor"
         tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
     <ImageButton
-        android:id="@+id/levelButton14"
+        android:id="@+id/level14"
         android:layout_width="36dp"
         android:layout_height="36dp"
         android:adjustViewBounds="true"
-        android:background="@drawable/round_button"
-        android:backgroundTint="#000000"
+        android:background="@drawable/round_button_grey"
         android:cropToPadding="false"
         android:onClick="toLevel"
         android:padding="0dp"
@@ -50,24 +49,23 @@
         android:tag="14"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/levelButton13"
-        app:layout_constraintTop_toTopOf="@+id/levelButton13"
+        app:layout_constraintStart_toEndOf="@+id/level13"
+        app:layout_constraintTop_toTopOf="@+id/level13"
         app:srcCompat="@drawable/xnor"
         tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
     <ImageButton
-        android:id="@+id/levelButton13"
+        android:id="@+id/level13"
         android:layout_width="36dp"
         android:layout_height="36dp"
         android:adjustViewBounds="true"
-        android:background="@drawable/round_button"
-        android:backgroundTint="#000000"
+        android:background="@drawable/round_button_grey"
         android:cropToPadding="false"
         android:onClick="toLevel"
         android:padding="0dp"
         android:scaleType="fitCenter"
         android:tag="13"
-        app:layout_constraintEnd_toStartOf="@+id/levelButton14"
+        app:layout_constraintEnd_toStartOf="@+id/level14"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline5"
@@ -75,56 +73,53 @@
         tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
     <ImageButton
-        android:id="@+id/levelButton11"
+        android:id="@+id/level9"
         android:layout_width="36dp"
         android:layout_height="36dp"
         android:adjustViewBounds="true"
-        android:background="@drawable/round_button"
-        android:backgroundTint="#000000"
-        android:cropToPadding="false"
-        android:onClick="toLevel"
-        android:padding="0dp"
-        android:scaleType="fitCenter"
-        android:tag="11"
-        app:layout_constraintEnd_toStartOf="@+id/levelButton12"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/levelButton10"
-        app:layout_constraintTop_toTopOf="@+id/levelButton10"
-        app:srcCompat="@drawable/or"
-        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
-
-    <ImageButton
-        android:id="@+id/levelButton10"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
-        android:adjustViewBounds="true"
-        android:background="@drawable/round_button"
-        android:backgroundTint="#000000"
-        android:cropToPadding="false"
-        android:onClick="toLevel"
-        android:padding="0dp"
-        android:scaleType="fitCenter"
-        android:tag="10"
-        app:layout_constraintEnd_toStartOf="@+id/levelButton11"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/levelButton9"
-        app:layout_constraintTop_toTopOf="@+id/levelButton9"
-        app:srcCompat="@drawable/nand"
-        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
-
-    <ImageButton
-        android:id="@+id/levelButton9"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
-        android:adjustViewBounds="true"
-        android:background="@drawable/round_button"
-        android:backgroundTint="#000000"
+        android:background="@drawable/round_button_grey"
         android:cropToPadding="false"
         android:onClick="toLevel"
         android:padding="0dp"
         android:scaleType="fitCenter"
         android:tag="9"
-        app:layout_constraintEnd_toStartOf="@+id/levelButton10"
+        app:layout_constraintEnd_toStartOf="@+id/level12"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/level6"
+        app:layout_constraintTop_toTopOf="@+id/level6"
+        app:srcCompat="@drawable/or"
+        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+    <ImageButton
+        android:id="@+id/level6"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:adjustViewBounds="true"
+        android:background="@drawable/round_button_grey"
+        android:cropToPadding="false"
+        android:onClick="toLevel"
+        android:padding="0dp"
+        android:scaleType="fitCenter"
+        android:tag="6"
+        app:layout_constraintEnd_toStartOf="@+id/level9"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/level3"
+        app:layout_constraintTop_toTopOf="@+id/level3"
+        app:srcCompat="@drawable/nand"
+        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+    <ImageButton
+        android:id="@+id/level3"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:adjustViewBounds="true"
+        android:background="@drawable/round_button_grey"
+        android:cropToPadding="false"
+        android:onClick="toLevel"
+        android:padding="0dp"
+        android:scaleType="fitCenter"
+        android:tag="3"
+        app:layout_constraintEnd_toStartOf="@+id/level6"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline4"
@@ -132,12 +127,11 @@
         tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
     <ImageButton
-        android:id="@+id/levelButton15"
+        android:id="@+id/level15"
         android:layout_width="36dp"
         android:layout_height="36dp"
         android:adjustViewBounds="true"
-        android:background="@drawable/round_button"
-        android:backgroundTint="#000000"
+        android:background="@drawable/round_button_grey"
         android:cropToPadding="false"
         android:onClick="toLevel"
         android:padding="0dp"
@@ -163,8 +157,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_end="219dp"
-        app:layout_constraintGuide_percent="0.48" />
+        app:layout_constraintGuide_begin="351dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline7"
@@ -175,149 +168,173 @@
         app:layout_constraintGuide_percent="0.25" />
 
     <Button
-        android:id="@+id/levelButton8"
+        android:id="@+id/level11"
         android:layout_width="36dp"
         android:layout_height="36dp"
         android:layout_marginBottom="16dp"
-        android:background="@drawable/round_button"
-        android:backgroundTint="@color/black"
+        android:background="@drawable/round_button_grey"
         android:backgroundTintMode="src_atop"
         android:onClick="toLevel"
-        android:tag="8"
+        android:tag="11"
         android:text="1"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/levelButton7" />
+        app:layout_constraintStart_toEndOf="@+id/level10" />
 
     <Button
-        android:id="@+id/levelButton7"
+        android:id="@+id/level10"
         android:layout_width="36dp"
         android:layout_height="36dp"
-        android:background="@drawable/round_button"
-        android:backgroundTint="@color/black"
+        android:background="@drawable/round_button_grey"
+        android:backgroundTintMode="src_atop"
+        android:onClick="toLevel"
+        android:tag="10"
+        android:text="0"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/level11"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/level8"
+        app:layout_constraintTop_toTopOf="@+id/level11" />
+
+    <Button
+        android:id="@+id/level8"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:background="@drawable/round_button_grey"
+        android:backgroundTintMode="src_atop"
+        android:onClick="toLevel"
+        android:tag="8"
+        android:text="0"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/level10"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/level7"
+        app:layout_constraintTop_toTopOf="@+id/level10" />
+
+    <Button
+        android:id="@+id/level7"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:background="@drawable/round_button_grey"
         android:backgroundTintMode="src_atop"
         android:onClick="toLevel"
         android:tag="7"
-        android:text="0"
+        android:text="1"
         android:textSize="16sp"
-        app:layout_constraintEnd_toStartOf="@+id/levelButton8"
+        app:layout_constraintEnd_toStartOf="@+id/level8"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/levelButton6"
-        app:layout_constraintTop_toTopOf="@+id/levelButton8" />
+        app:layout_constraintStart_toEndOf="@+id/level5"
+        app:layout_constraintTop_toTopOf="@+id/level8" />
 
     <Button
-        android:id="@+id/levelButton6"
+        android:id="@+id/level5"
         android:layout_width="36dp"
         android:layout_height="36dp"
-        android:background="@drawable/round_button"
-        android:backgroundTint="@color/black"
-        android:backgroundTintMode="src_atop"
-        android:onClick="toLevel"
-        android:tag="6"
-        android:text="0"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toStartOf="@+id/levelButton7"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/levelButton5"
-        app:layout_constraintTop_toTopOf="@+id/levelButton7" />
-
-    <Button
-        android:id="@+id/levelButton5"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
-        android:background="@drawable/round_button"
-        android:backgroundTint="@color/black"
+        android:background="@drawable/round_button_grey"
         android:backgroundTintMode="src_atop"
         android:onClick="toLevel"
         android:tag="5"
         android:text="1"
         android:textSize="16sp"
-        app:layout_constraintEnd_toStartOf="@+id/levelButton6"
+        app:layout_constraintEnd_toStartOf="@+id/level7"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/levelButton4"
-        app:layout_constraintTop_toTopOf="@+id/levelButton6" />
+        app:layout_constraintStart_toEndOf="@+id/level4"
+        app:layout_constraintTop_toTopOf="@+id/level7" />
 
     <Button
-        android:id="@+id/levelButton4"
+        android:id="@+id/level2"
         android:layout_width="36dp"
         android:layout_height="36dp"
-        android:background="@drawable/round_button"
-        android:backgroundTint="@color/black"
-        android:backgroundTintMode="src_atop"
-        android:onClick="toLevel"
-        android:tag="4"
-        android:text="1"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toStartOf="@+id/levelButton5"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/levelButton3"
-        app:layout_constraintTop_toTopOf="@+id/levelButton5" />
-
-    <Button
-        android:id="@+id/levelButton2"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
-        android:background="@drawable/round_button"
-        android:backgroundTint="@color/black"
+        android:background="@drawable/round_button_grey"
         android:backgroundTintMode="src_atop"
         android:onClick="toLevel"
         android:tag="2"
         android:text="0"
         android:textSize="16sp"
-        app:layout_constraintEnd_toStartOf="@+id/levelButton3"
+        app:layout_constraintEnd_toStartOf="@+id/level4"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/levelButton1"
-        app:layout_constraintTop_toTopOf="@+id/levelButton3" />
+        app:layout_constraintStart_toEndOf="@+id/level1"
+        app:layout_constraintTop_toTopOf="@+id/level4" />
 
     <Button
-        android:id="@+id/levelButton16"
+        android:id="@+id/level16"
         android:layout_width="36dp"
         android:layout_height="36dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/round_button"
-        android:backgroundTint="@color/black"
+        android:background="@drawable/round_button_grey"
         android:backgroundTintMode="src_atop"
+        android:onClick="toLevel"
         android:tag="16"
         android:text="1"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/guideline2" />
 
     <Button
-        android:id="@+id/levelButton3"
+        android:id="@+id/level4"
         android:layout_width="36dp"
         android:layout_height="36dp"
-        android:background="@drawable/round_button"
-        android:backgroundTint="@color/black"
+        android:background="@drawable/round_button_grey"
         android:backgroundTintMode="src_atop"
         android:onClick="toLevel"
-        android:tag="3"
+        android:tag="4"
         android:text="1"
         android:textSize="16sp"
-        app:layout_constraintEnd_toStartOf="@+id/levelButton4"
+        app:layout_constraintEnd_toStartOf="@+id/level5"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/levelButton2"
-        app:layout_constraintTop_toTopOf="@+id/levelButton4" />
+        app:layout_constraintStart_toEndOf="@+id/level2"
+        app:layout_constraintTop_toTopOf="@+id/level5" />
 
     <Button
-        android:id="@+id/levelButton1"
+        android:id="@+id/level1"
         android:layout_width="36dp"
         android:layout_height="36dp"
         android:layout_marginStart="16dp"
         android:background="@drawable/round_button"
-        android:backgroundTint="@color/black"
         android:backgroundTintMode="src_atop"
         android:onClick="toLevel"
         android:tag="1"
         android:text="1"
         android:textSize="16sp"
-        app:layout_constraintEnd_toStartOf="@+id/levelButton2"
+        app:layout_constraintEnd_toStartOf="@+id/level2"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/levelButton2" />
+        app:layout_constraintTop_toTopOf="@+id/level2" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:backgroundTint="#8C95A8"
+        android:onClick="toTutorial"
+        android:text="How To Play"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="88dp"
+        app:layout_constraintGuide_percent="0.1" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:text="Choose a Level"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

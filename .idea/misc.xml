@@ -4,8 +4,12 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/matt/OneDrive/Documents/ENGR489/LogicGateGame/app/src/main/res/drawable/round_button.xml" value="0.1" />
+        <entry key="..\:/Users/matt/OneDrive/Documents/ENGR489/LogicGateGame/app/src/main/res/drawable/round_button_grey.xml" value="0.1775" />
+        <entry key="..\:/Users/matt/OneDrive/Documents/ENGR489/LogicGateGame/app/src/main/res/drawable/table_element.xml" value="0.364" />
+        <entry key="..\:/Users/matt/OneDrive/Documents/ENGR489/LogicGateGame/app/src/main/res/layout/activity_gates.xml" value="0.5" />
         <entry key="..\:/Users/matt/OneDrive/Documents/ENGR489/LogicGateGame/app/src/main/res/layout/activity_level.xml" value="0.5" />
         <entry key="..\:/Users/matt/OneDrive/Documents/ENGR489/LogicGateGame/app/src/main/res/layout/activity_main.xml" value="0.5" />
+        <entry key="..\:/Users/matt/OneDrive/Documents/ENGR489/LogicGateGame/app/src/main/res/layout/activity_tutorial.xml" value="0.537962962962963" />
       </map>
     </option>
   </component>
